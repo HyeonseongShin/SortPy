@@ -29,19 +29,30 @@ def merge_sort(input_list):
 
     return rtn_list
 
+
 def quick_sort(input_list):
     pass
 
+
 def bubble_sort(input_list):
-    pass
+    for roop_count in range(len(input_list)-1, 0, -1):
+        for idx in range(roop_count):
+            if input_list[idx] > input_list[idx+1]:
+                input_list[idx], input_list[idx+1] = input_list[idx+1], input_list[idx]
+
+    return input_list
+
 
 def selection_sort(input_list):
     pass
 
+
 def insertion_sort(input_list):
     pass
+
 
 if __name__ == '__main__':
     input_list = [9, 5, 8, 6, 7, 1, 4, 3, 2]
     print("Input List : {0}".format(input_list))
     print("Merge Sort : {0}".format(merge_sort(input_list)))
+    print("Bubble Sort : {0}".format(bubble_sort(input_list)))
