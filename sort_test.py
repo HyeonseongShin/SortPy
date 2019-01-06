@@ -26,6 +26,11 @@ class CustomTests(unittest.TestCase):
 
         self.assertEqual([1, 2, 3, 4, 5, 6, 7, 8, 9], rtn_list)
 
+    def test_insertion_sort(self):
+        in_list = [9, 5, 8, 6, 7, 1, 4, 3, 2]
+        rtn_list = sort.insertion_sort(in_list)
+
+        self.assertEqual([1, 2, 3, 4, 5, 6, 7, 8, 9], rtn_list)
 
 # unittest를 실행
 if __name__ == '__main__':

@@ -55,7 +55,15 @@ def selection_sort(input_list):
 
 
 def insertion_sort(input_list):
-    pass
+    for sorted_size in range(1, len(input_list)):
+        insertion_value = input_list[sorted_size]
+        insertion_idx = sorted_size
+        while insertion_idx > 0 and input_list[insertion_idx-1] > insertion_value:
+            input_list[insertion_idx] = input_list[insertion_idx-1]
+            insertion_idx -= 1
+        input_list[insertion_idx] = insertion_value
+
+    return input_list
 
 
 if __name__ == '__main__':
@@ -64,3 +72,4 @@ if __name__ == '__main__':
     print("Merge Sort : {0}".format(merge_sort(input_list[:])))
     print("Bubble Sort : {0}".format(bubble_sort(input_list[:])))
     print("Selection Sort : {0}".format(selection_sort(input_list[:])))
+    print("Insertion Sort : {0}".format(insertion_sort(input_list[:])))
