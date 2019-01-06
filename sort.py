@@ -44,7 +44,14 @@ def bubble_sort(input_list):
 
 
 def selection_sort(input_list):
-    pass
+    for start_idx in range(len(input_list)-1):
+        min_idx = start_idx
+        for idx in range(start_idx+1, len(input_list)):
+            if input_list[min_idx] > input_list[idx]:
+                min_idx = idx
+        input_list[start_idx], input_list[min_idx] = input_list[min_idx], input_list[start_idx]
+
+    return input_list
 
 
 def insertion_sort(input_list):
@@ -53,6 +60,7 @@ def insertion_sort(input_list):
 
 if __name__ == '__main__':
     input_list = [9, 5, 8, 6, 7, 1, 4, 3, 2]
-    print("Input List : {0}".format(input_list))
-    print("Merge Sort : {0}".format(merge_sort(input_list)))
-    print("Bubble Sort : {0}".format(bubble_sort(input_list)))
+    print("Input List : {0}".format(input_list[:]))
+    print("Merge Sort : {0}".format(merge_sort(input_list[:])))
+    print("Bubble Sort : {0}".format(bubble_sort(input_list[:])))
+    print("Selection Sort : {0}".format(selection_sort(input_list[:])))
