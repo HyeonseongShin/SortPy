@@ -31,7 +31,28 @@ def merge_sort(input_list):
 
 
 def quick_sort(input_list):
-    pass
+    if(len(input_list) <= 1):
+        return input_list
+
+    pivot_index = 0
+    left_index = pivot_index + 1
+    right_index = len(input_list) - 1
+
+    while left_index < right_index:
+
+        while input_list[pivot_index] > input_list[left_index] and left_index < len(input_list) - 1:
+            left_index += 1
+        while input_list[pivot_index] < input_list[right_index] and right_index >= pivot_index + 1:
+            right_index -= 1
+
+        if left_index < right_index:
+            input_list[left_index], input_list[right_index] = input_list[right_index], input_list[left_index]
+
+
+    input_list[right_index], input_list[pivot_index] = input_list[pivot_index], input_list[right_index]
+
+    return quick_sort(input_list[0: right_index]) + input_list[right_index:right_index+1] + quick_sort(input_list[right_index+1: len(input_list)])
+
 
 
 def bubble_sort(input_list):
@@ -70,6 +91,7 @@ if __name__ == '__main__':
     input_list = [9, 5, 8, 6, 7, 1, 4, 3, 2]
     print("Input List : {0}".format(input_list[:]))
     print("Merge Sort : {0}".format(merge_sort(input_list[:])))
+    print("Merge Sort : {0}".format(quick_sort(input_list[:])))
     print("Bubble Sort : {0}".format(bubble_sort(input_list[:])))
     print("Selection Sort : {0}".format(selection_sort(input_list[:])))
     print("Insertion Sort : {0}".format(insertion_sort(input_list[:])))
